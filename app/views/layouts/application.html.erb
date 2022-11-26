@@ -14,9 +14,30 @@
   </head>
 
   <body>
+    <header class="bg-dark d-flex justify-content-between">
+      <div class="d-flex align-items-center">
+        <%= link_to image_tag("logo.png") , "/" %>
+
+        <p class="text-white m-0">検索欄にする予定</p>
+      </div>
+
+      <div class="d-flex align-items-center">
+        <% if user_signed_in? %>
+          <p class="text-white m-0">後程ユーザーネームと画像へ変更<%= current_user.email %></p>
+        <% else %>
+          <%= link_to "ログイン", new_user_session_path, class:"btn btn-primary me-1"%>
+          <%= link_to "登録する", new_user_registration_path ,class:"btn btn-primary"%>
+        <% end %>
+      </div>
+
+    </header>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
     <%= yield %>
+
+    <footer class="bg-dark fixed-bottom d-flex justify-content-center align-items-center">
+      <p class="text-white p-5">© 2020 POTEPAN.INC.</p>
+    </footer>
   </body>
 </html>
