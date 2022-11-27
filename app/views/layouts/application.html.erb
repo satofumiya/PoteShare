@@ -23,7 +23,19 @@
 
       <div class="d-flex align-items-center">
         <% if user_signed_in? %>
-          <p class="text-white m-0">後程ユーザーネームと画像へ変更<%= current_user.email %></p>
+          <% if current_user.user_name.nil? %>
+            <p class="text-white m-0"><%= current_user.user_name %></p>
+          <% else %>
+            <p class="text-white m-0">名前がないです</p>
+          <% end %>
+          <% if current_user.user_icon.nil? %>
+            <%= image_tag @user.user_icon.thumb50.url,class:"icon" %>
+          <% else %>
+            <%= image_tag "default_icon.jpeg", size: '50x50' ,class:"icon"%>
+          <% end %>
+          <li class="nav-item mx-1">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:'link' %>
+          </li>
         <% else %>
           <%= link_to "ログイン", new_user_session_path, class:"btn btn-primary me-1"%>
           <%= link_to "登録する", new_user_registration_path ,class:"btn btn-primary"%>
