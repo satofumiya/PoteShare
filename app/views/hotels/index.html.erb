@@ -1,12 +1,25 @@
 <h1>登録済みルーム一覧</h1>
- <tbody>
-   <% @hotels.each do |hotel| %>
+
+<table>
+   <thead>
+     <tr>
+       <th>登録番号</th>
+       <th>ルーム名</th>
+       <th>ルーム紹介</th>
+       <th>料金</th>
+       <th>住所</th>
+     </tr>
+   </thead>
+   <tbody>
+    <% @hotels.each do |hotel| %>
      <tr>
        <td><%= hotel.id %></td>
-       <td><%= hotel.name %></td>
+       <td><%= link_to hotel.name, new_reservation_path %></td>
        <td><%= hotel.hotel_introduction %></td>
        <td><%= hotel.price %></td>
        <td><%= hotel.address %></td>
      </tr>
-   <% end %>
- </tbody>
+    <% end %>
+   </tbody>
+
+</table>
