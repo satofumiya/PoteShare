@@ -1,0 +1,12 @@
+<h1>登録済みルーム一覧</h1>
+ <tbody>
+   <% @hotels.each do |hotel| %>
+     <tr>
+       <td><%= hotel.id %></td>
+       <td><%= hotel.name %></td>
+       <td><%= hotel.hotel_introduction %></td>
+       <td><%= hotel.price %></td>
+       <td><%= hotel.address %></td>
+     </tr>
+   <% end %>
+ </tbody>

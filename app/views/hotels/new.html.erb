@@ -1,1 +1,33 @@
-<h1>登録画面</h1>
+<div class="container d-flex justify-content-center">
+<div class="col-6 bg-white d-flex flex-column p-5">
+<h2 class="fs-5 mb-3">宿泊施設の登録</h2>
+
+<%= form_with model:@hotel do |f| %>
+
+  <div class="field mb-2">
+    <%= f.label :name, "ルーム名" ,class:"text-muted"%><br />
+    <%= f.text_field :name,class:"border rounded col-12 border-dark p-1"%>
+  </div>
+  <div class="field mb-2">
+    <%= f.label :hotel_introduction, "ルーム紹介" ,class:"text-muted"%><br />
+    <%= f.text_field :hotel_introduction,class:"border rounded col-12 border-dark p-1"%>
+  </div>
+
+  <div class="field mb-2">
+    <%= f.label :price, "料金" ,class:"text-muted"%><br/>
+    <%= f.number_field :price,class:"border rounded col-12 border-dark p-1"%>
+  </div>
+
+  <div class="field mb-2">
+    <%= f.label :address, "住所" ,class:"text-muted"%><br />
+    <%= f.text_field :address,class:"border rounded col-12 border-dark p-1"%>
+  </div>
+
+  <%= f.hidden_field :user_id, value: @user.id %>
+
+  <div class="actions box-login">
+    <%= f.submit "施設を登録する" ,class:"d-flex justify-content-center align-items-center mb-2"%>
+  </div>
+<% end %>
+</div>
+</div>
