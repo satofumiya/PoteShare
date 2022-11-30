@@ -15,7 +15,7 @@
     <tbody>
       <% @user.reservations.each do |reservation| %>
         <tr>
-          <%# <td><%= reservation.hotel.hotel_image %><%#</td> %>
+          <td><%= image_tag reservation.hotel.hotel_image.url %></td>
           <td><%= reservation.hotel.name%></td>
           <td><%= reservation.hotel.hotel_introduction%></td>
           <td><%= reservation.hotel.price%></td>

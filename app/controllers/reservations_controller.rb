@@ -7,7 +7,7 @@ class ReservationsController < ApplicationController
 
     def new
         @user = current_user
-        @hotel = Hotel.find_by(params[:id])
+        @hotel = Hotel.find(params[:id])
         @reservation = Reservation.new
     end
 

@@ -14,7 +14,7 @@
       <% @hotels.each do |hotel| %>
       <tr>
         <td><%= hotel.id %></td>
-        <td><%= link_to hotel.name, new_reservation_path %></td>
+        <td><%= link_to hotel.name, new_reservation_path(id: hotel.id) %></td>
         <td><%= hotel.hotel_introduction %></td>
         <td><%= hotel.price %></td>
         <td><%= hotel.address %></td>

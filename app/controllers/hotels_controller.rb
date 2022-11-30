@@ -11,7 +11,7 @@ class HotelsController < ApplicationController
     end
 
     def create
-        @hotel = Hotel.new(params.require(:hotel).permit(:name, :hotel_introduction, :price, :address,:user_id))
+        @hotel = Hotel.new(params.require(:hotel).permit(:name, :hotel_introduction, :price, :address,:user_id,:hotel_image))
         if @hotel.save
             flash[:notice] = "ルームの登録ができました。"
             redirect_to root_path
