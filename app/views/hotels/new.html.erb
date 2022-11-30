@@ -1,16 +1,15 @@
 <div class="container d-flex justify-content-center">
 <div class="col-6 bg-white d-flex flex-column p-5">
-<h2 class="fs-5 mb-3">宿泊施設の登録</h2>
+<h2 class="fs-5 mb-3">ルーム登録</h2>
 
 <%= form_with model:@hotel do |f| %>
-
   <div class="field mb-2">
-    <%= f.label :name, "ルーム名" ,class:"text-muted"%><br />
+    <%= f.label :name, "ルーム名" ,class:"text-muted"%><br/>
     <%= f.text_field :name,class:"border rounded col-12 border-dark p-1"%>
   </div>
   <div class="field mb-2">
     <%= f.label :hotel_introduction, "ルーム紹介" ,class:"text-muted"%><br />
-    <%= f.text_field :hotel_introduction,class:"border rounded col-12 border-dark p-1"%>
+    <%= f.text_area :hotel_introduction,class:"border rounded col-12 border-dark p-1"%>
   </div>
 
   <div class="field mb-2">
@@ -23,10 +22,15 @@
     <%= f.text_field :address,class:"border rounded col-12 border-dark p-1"%>
   </div>
 
+  <div class="form-group">
+    <label class="form-label text-muted">ルーム画像</label><br/>
+    <%= f.file_field :hotel_image %>
+  </div>
+
   <%= f.hidden_field :user_id, value: @user.id %>
 
   <div class="actions box-login">
-    <%= f.submit "施設を登録する" ,class:"d-flex justify-content-center align-items-center mb-2"%>
+    <%= f.submit "ルーム登録する" ,class:"d-flex justify-content-center align-items-center mt-5"%>
   </div>
 <% end %>
 </div>
