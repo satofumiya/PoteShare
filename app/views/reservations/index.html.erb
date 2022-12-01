@@ -15,14 +15,13 @@
     <tbody>
       <% @user.reservations.each do |reservation| %>
         <tr>
-          <td><%= image_tag reservation.hotel.hotel_image.url %></td>
-          <td><%= reservation.hotel.name%></td>
+          <td><%= image_tag reservation.hotel.hotel_image.url , size: '200x100' %></td>
+          <td><%= link_to reservation.hotel.name, new_reservation_path(id: reservation.hotel.id) %></td>
           <td><%= reservation.hotel.hotel_introduction%></td>
           <td><%= reservation.hotel.price%></td>
           <td><%= reservation.start%></td>
           <td><%= reservation.end%></td>
-          <td><%= reservation.created_at%></td>
-          <td></td>
+          <td><%= reservation.created_at %></td>
         </tr>
       <% end %>
     </tbody>

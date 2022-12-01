@@ -1,3 +1,14 @@
-<h1>ユーザー情報</h1>
-<%= @user.email%>
-<%= image_tag @user.user_icon.thumb50.url,class:"icon" %>
+<div class="d-flex flex-column m-5">
+    <h2>ログイン情報</h2>
+    <hr>
+    <p>メールアドレス</p> <p><%= @user.email%></p>
+    <hr class="mb-5">
+    <h2>プロフィール</h2>
+    <hr>
+    <p>ユーザー名</p> <p><%= @user.user_name %></p>
+    <hr>
+    <p>自己紹介文</p>  <p><%= @user.user_introduction %></p>
+    <hr>
+    <%= link_to "ログイン情報を編集する" , edit_user_registration_path, class:"btn btn-primary mb-3 col-3"%>
+    <%= link_to "プロフィールを編集する" , profile_user_path, class:"btn btn-primary col-3"%>
+</div>
