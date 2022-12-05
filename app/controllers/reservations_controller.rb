@@ -13,9 +13,12 @@ class ReservationsController < ApplicationController
 
     def create
         @reservation = Reservation.new(reservation_params)
+        @hotel = Hotel.find(@reservation.hotel_id)
+        @user = User.find(@reservation.user_id)
         if params[:back] || !@reservation.save
             render :new and return
         else
+            flash[:notice] = "ホテルの予約を完了しました。"
             redirect_to root_path
         end
     end
