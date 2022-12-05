@@ -1,0 +1,24 @@
+<div class="d-flex justify-content-center aligin-items-center">
+  <div class="d-flex flex-column">
+    <h1>予約確認画面</h1>
+    <hr>
+    <h2>開始日<%= @reservation.start %></h2>
+    <h2>終了日<%= @reservation.end %></h2>
+    <h2>宿泊日数<%= day = (@reservation.end - @reservation.start).to_i %>日</h2>
+    <hr>
+    <h2>宿泊人数<%= @reservation.NumberOfGuests %>人</h2>
+    <hr>
+    <h2>合計金額<%= @reservation.hotel.price * @reservation.NumberOfGuests * day %>円</h2>
+    <hr>
+    <p>上記でよろしければ「予約を確定する」を押してください</p>
+    <%= form_with model: @reservation, local: true do |form| %>
+      <%= form.hidden_field :start %>
+      <%= form.hidden_field :end %>
+      <%= form.hidden_field :NumberOfGuests %>
+      <%= form.hidden_field :user_id %>
+      <%= form.hidden_field :hotel_id %>
+      <%= form.submit '入力画面に戻る', name: :back %>
+      <%= form.submit '予約を確定する' %>
+    <% end %>
+  </div>
+</div>

@@ -5,68 +5,57 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
   </head>
-
   <body>
     <div class="footer_fixed d-flex flex-column">
       <header class="bg-dark d-flex justify-content-between">
         <div class="d-flex align-items-center">
           <%= link_to image_tag("logo.png") , "/" %>
-          <p class="text-white m-0">検索欄にする予定</p>
+          <%= render 'shared/search' , column: 'name', item: 'ホテル名' %>
+          <%= render 'shared/search' , column: 'address', item: 'エリア'%>
         </div>
-
-          <% if user_signed_in? %>
-            <div class="nav">
-              <div class="d-flex align-items-center">
-                <% if current_user.user_name.nil? %>
-                  <p class="text-white m-0 me-1">名前がまだありません</p>
-                <% else %>
-                  <p class="text-white m-0 me-1"><%= current_user.user_name %></p>
-                <% end %>
-              </div>
-
-                <input id="drawer_input" class="drawer_hidden" type="checkbox">
-                <label for="drawer_input" class="drawer_open">
-                  <% if current_user.user_icon.nil? %>
-                    <%= image_tag "default_icon.jpeg", size: '50x50' ,class:"icon m-2"%>
-                  <% else %>
-                    <%= image_tag current_user.user_icon.url, size: '50x50' ,class:"icon m-2"%>
-                  <% end %>
-                </label>
-
-              <nav class="nav_content">
-                <ul class="nav_list d-flex flex-column">
-
-                  <li><%= link_to "ルーム登録", new_hotel_path, class:'link' %></li>
-                  <li><%= link_to "予約一覧", reservations_path, class:'link' %></li>
-                  <li><%= link_to "登録ルーム一覧", hotels_path, class:'link' %></li>
-                  <li><%= link_to "設定", user_path(@user.id), class:'link' %></li>
-                  <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:'link' %></li>
-
-                </ul>
-              </nav>
-
+        <% if user_signed_in? %>
+          <div class="nav">
+            <div class="d-flex align-items-center">
+              <% if current_user.user_name.nil? %>
+                <p class="text-white m-0 me-1">名前がまだありません</p>
+              <% else %>
+                <p class="text-white m-0 me-1"><%= current_user.user_name %></p>
+              <% end %>
             </div>
-          <% else %>
-            <div class="">
-              <%= link_to "ログイン", new_user_session_path, class:"btn btn-primary m-3"%>
-              <%= link_to "登録する", new_user_registration_path ,class:"btn btn-primary m-3"%>
-            </div>
-          <% end %>
-
+            <input id="drawer_input" class="drawer_hidden" type="checkbox">
+            <label for="drawer_input" class="drawer_open">
+              <% if current_user.user_icon.nil? %>
+                <%= image_tag "default_icon.jpeg", size: '50x50' ,class:"icon m-2"%>
+              <% else %>
+                <%= image_tag current_user.user_icon.url, size: '50x50' ,class:"icon m-2"%>
+              <% end %>
+            </label>
+            <nav class="nav_content">
+              <ul class="nav_list d-flex flex-column">
+                <li><%= link_to "ルーム登録", new_hotel_path, class:'link' %></li>
+                <li><%= link_to "予約一覧", reservations_path, class:'link' %></li>
+                <li><%= link_to "登録ルーム一覧", hotels_path, class:'link' %></li>
+                <li><%= link_to "設定", user_path(@user.id), class:'link' %></li>
+                <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:'link' %></li>
+              </ul>
+            </nav>
+          </div>
+        <% else %>
+          <div class="">
+            <%= link_to "ログイン", new_user_session_path, class:"btn btn-primary m-3"%>
+            <%= link_to "登録する", new_user_registration_path ,class:"btn btn-primary m-3"%>
+          </div>
+        <% end %>
       </header>
-
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
-
       <%= yield %>
-
       <footer class="bg-dark d-flex justify-content-center align-items-center">
         <p class="text-white p-5">© 2020 POTEPAN.INC.</p>
       </footer>

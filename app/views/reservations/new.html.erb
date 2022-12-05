@@ -1,20 +1,22 @@
-<div class="d-flex flex-lg-row flex-column">
-  <div class="d-flex flex-column ms-5 col-md-8 col-12">
-    <%= image_tag @hotel.hotel_image.url , size: '600*500',class:"hotel_image"%>
+<div class="d-flex flex-lg-row flex-column ms-5">
+  <div class="d-flex flex-column ms-5 col-md-6 col-12">
+    <%= image_tag @hotel.hotel_image.url , size: '500x300',class:"hotel_image"%>
     <div class="d-flex flex-column mt-3">
       <hr>
-      <p>ホテル名</p><h1><%= @hotel.name %></h1>
+      <p>ホテル名</p>
+      <p class="fs-3"><%= @hotel.name %></p>
       <hr>
-      <p>住所</p><h1><%= @hotel.address %></h1>
+      <p>住所</p>
+      <p class=""><%= @hotel.address %></p>
       <hr>
       <p>紹介文</p>
       <p><%= @hotel.hotel_introduction %></p>
       <hr>
     </div>
   </div>
-  <div class="d-flex flex-column col-md-6 col-12 m-5">
+  <div class="d-flex flex-column col-md-6 col-12">
     <h2 class="fs-5 ms-3 mb-3">料金　¥<%= @hotel.price %> / 日</h2>
-    <%= form_with model:@reservation do |f| %>
+    <%= form_with model:@reservation, url: confirm_reservations_path(@reservation) do |f| %>
       <div class="m-3">
         <%= f.label :start ,"開始日" %>
         <%= f.date_field :start %>
@@ -23,20 +25,15 @@
         <%= f.label :end ,"終了日" %>
         <%= f.date_field :end %>
       </div>
-
       <div class="field m-3">
         <%= f.label :NumberOfGuests, "人数" ,class:"text-muted"%><br/>
         <%= f.number_field :NumberOfGuests,class:"border rounded border-dark p-1"%>
       </div>
-
-
       <%= f.hidden_field :user_id, value: @user.id %>
       <%= f.hidden_field :hotel_id, value: @hotel.id %>
-
       <div class="actions box-login m-3">
         <%= f.submit "上記の内容で予約を行う" ,class:"d-flex justify-content-center align-items-center col-3 mb-2"%>
       </div>
     <% end %>
   </div>
-
 </div>

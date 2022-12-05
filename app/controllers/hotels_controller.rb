@@ -19,16 +19,4 @@ class HotelsController < ApplicationController
             render root_path
         end
     end
-
-    def show
-    end
-
-    def edit
-    end
-
-    def update
-    end
-
-    def destroy
-    end
 end
