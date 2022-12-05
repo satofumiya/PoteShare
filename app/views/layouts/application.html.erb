@@ -16,8 +16,8 @@
       <header class="bg-dark d-flex justify-content-between">
         <div class="d-flex align-items-center">
           <%= link_to image_tag("logo.png") , "/" %>
-          <%= render 'shared/search' , column: 'name', item: 'ホテル名' %>
-          <%= render 'shared/search' , column: 'address', item: 'エリア'%>
+          <%= render 'shared/search' , columns: ["name","hotel_introduction"], item: 'フリーワード' %>
+          <%= render 'shared/search' , columns: 'address', item: 'エリア'%>
         </div>
         <% if user_signed_in? %>
           <div class="nav">
