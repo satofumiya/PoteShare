@@ -4,3 +4,10 @@ ja:
         reservation:
           start: 開始日
           end_day: 終了日
+          NumberOfGuests: 人数
+        hotel:
+          hotel_image: ルーム画像
+          name: ルーム名
+          hotel_introduction: 部屋紹介
+          price: 料金
+          address: 住所

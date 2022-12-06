@@ -1,7 +1,7 @@
 class Reservation < ApplicationRecord
     validate :date_before_start
     validate :date_before_finish
-    validates :NumberOfGuests, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0}
+    validates :NumberOfGuests, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 1}
 
     def date_before_start
         if start < Date.today

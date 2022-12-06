@@ -15,7 +15,7 @@
     </div>
   </div>
   <div class="d-flex flex-column col-md-6 col-12">
-    <p><%= @reservation.errors.full_messages[0] %></p>
+    <%= render "shared/error", obj: @reservation %>
     <h2 class="fs-5 ms-3 mb-3">料金　¥<%= @hotel.price %> / 日</h2>
     <%= form_with model:@reservation, url: confirm_reservations_path(@reservation) do |f| %>
       <div class="m-3">

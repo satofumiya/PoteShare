@@ -3,7 +3,7 @@ class Hotel < ApplicationRecord
     validates :hotel_introduction, presence: true
     validates :address, presence: true
     validates :hotel_image, presence: true
-    validates :price, presence: true ,numericality: true
+    validates :price, presence: true ,numericality: {only_integer: true, greater_than_or_equal_to: 1}
 
     belongs_to :user
     has_many :reservations
