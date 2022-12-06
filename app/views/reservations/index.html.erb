@@ -1,0 +1,29 @@
+<div class="d-flex flex-column justifiy-contents-center m-5">
+  <h2>予約済みルーム一覧</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ルーム画像</th>
+        <th>ルーム名</th>
+        <th>ルーム紹介</th>
+        <th>料金</th>
+        <th>開始日</th>
+        <th>終了日</th>
+        <th>予約確定時刻</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user.reservations.each do |reservation| %>
+        <tr>
+          <td><%= image_tag reservation.hotel.hotel_image.url , size: '200x100' %></td>
+          <td><%= link_to reservation.hotel.name, new_reservation_path(id: reservation.hotel.id) %></td>
+          <td><%= reservation.hotel.hotel_introduction%></td>
+          <td><%= reservation.hotel.price%></td>
+          <td><%= reservation.start%></td>
+          <td><%= reservation.end_day%></td>
+          <td><%= reservation.created_at %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -13,3 +13,84 @@
  *= require_tree .
  *= require_self
  */
+
+.footer_fixed {
+    min-height: 100vh;
+}
+
+footer {
+    margin-top: auto;
+}
+
+.box-login {
+    margin-bottom: 26px;
+}
+
+.box-login input[type="submit"] {
+    border-style: none;
+    width: 50%;
+    height: 50%;
+    background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+    border-radius: 3px;
+    border: 1px #a88734 solid;
+}
+
+.box-login input[type="submit"]:hover {
+    cursor: pointer;
+    background: #f0c14b;
+}
+
+.icon {
+    border-radius: 50%;
+}
+
+/* チェックボックスを非表示にする */
+.drawer_hidden {
+    display: none;
+}
+
+/* メニューのデザイン*/
+.nav_content {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 10%;
+    left: 100%;
+    /* メニューを画面の外に飛ばす */
+    z-index: 99;
+    background: #fff;
+    transition: .5s;
+}
+
+/* メニュー黒ポチを消す */
+.nav_list {
+    list-style: none;
+}
+
+.drawer_open {
+    padding: auto;
+}
+
+/* アイコンがクリックされたらメニューを表示 */
+#drawer_input:checked~.nav_content {
+    left: 85%;
+    /* メニューを画面に入れる */
+}
+
+table th {
+    background-color: #ffffff;
+}
+
+table th,
+table td {
+    border: solid 1px black;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+th {
+    display: table-cell;
+    vertical-align: inherit;
+    font-weight: bold;
+    text-align: -internal-center;
+}
