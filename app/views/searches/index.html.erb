@@ -1,15 +1,15 @@
 <div class="m-5">
   <p>検索結果 <%= @hotels.length %>件</p>
-    <div class="d-flex flex-md-row flex-column col-md-4 col-12 m-1">
-      <% @hotels.each do |hotel| %>
-          <%= link_to new_reservation_path(id: hotel.id), class: "HotelList" do  %>
-              <div class="d-flex flex-column border m-2 p-2 text-body">
-                <%= image_tag hotel.hotel_image.url, size: "300x200", class:"" %>
-                <p><%= hotel.name %></p>
-                <p><%= hotel.address %></p>
-                <p class="d-flex justify-content-end me-1">¥<%= hotel.price %></p>
-              </div>
-          <% end %>
+  <div class="d-flex flex-md-row flex-column col-md-4 col-12 m-1">
+    <% @hotels.each do |hotel| %>
+      <%= link_to new_reservation_path(id: hotel.id), class: "HotelList" do  %>
+        <div class="d-flex flex-column border m-2 p-2 text-body">
+          <%= image_tag hotel.hotel_image.url, size: "300x200", class:"" %>
+          <p><%= hotel.name %></p>
+          <p><%= hotel.address %></p>
+          <p class="d-flex justify-content-end me-1">¥<%= hotel.price %></p>
+        </div>
       <% end %>
-    </div>
+    <% end %>
+  </div>
 </div>

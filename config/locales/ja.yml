@@ -1,0 +1,6 @@
+ja:
+  activerecord:
+      attributes:
+        reservation:
+          start: 開始日
+          end_day: 終了日

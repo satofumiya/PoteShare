@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_27_121100) do
+ActiveRecord::Schema.define(version: 2022_12_06_105356) do
 
   create_table "hotels", force: :cascade do |t|
     t.string "name"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2022_11_27_121100) do
     t.integer "user_id"
     t.integer "hotel_id"
     t.date "start"
-    t.date "end"
+    t.date "end_day"
     t.integer "NumberOfGuests"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

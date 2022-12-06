@@ -26,13 +26,14 @@ class ReservationsController < ApplicationController
     def confirm
         @user = current_user
         @reservation = Reservation.new(reservation_params)
+        @hotel = Hotel.find(@reservation.hotel_id)
         if @reservation.invalid?
           render :new
         end
     end
 private
     def reservation_params
-        params.require(:reservation).permit(:start, :end, :NumberOfGuests,:user_id, :hotel_id)
+        params.require(:reservation).permit(:start, :end_day, :NumberOfGuests,:user_id, :hotel_id)
     end
 
 end
